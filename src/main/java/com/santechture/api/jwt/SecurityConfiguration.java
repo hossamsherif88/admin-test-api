@@ -1,4 +1,4 @@
-package com.santechture.api.jwt2;
+package com.santechture.api.jwt;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,8 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import javax.servlet.Filter;
 
 @Configuration
 @EnableWebSecurity
@@ -30,7 +28,8 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-/*list of strings*/.requestMatchers("/admin")
+                //.requestMatchers("/admin") //list of strings -> spring 3.0 security
+                .antMatchers("/admin")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

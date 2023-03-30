@@ -2,6 +2,8 @@ package com.santechture.api.exception;
 
 import org.springframework.http.HttpStatus;
 
+import java.util.function.Supplier;
+
 public class CustomException extends RuntimeException {
 
   private static final long serialVersionUID = 1L;

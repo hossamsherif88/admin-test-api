@@ -1,4 +1,4 @@
-package com.santechture.api.jwt2;
+package com.santechture.api.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

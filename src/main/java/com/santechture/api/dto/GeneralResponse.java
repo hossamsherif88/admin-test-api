@@ -18,6 +18,7 @@ public class GeneralResponse implements Serializable {
     private String message;
     private Integer total;
     private Object data;
+    private String token;
 
     public GeneralResponse() {}
 
@@ -99,6 +100,17 @@ public class GeneralResponse implements Serializable {
         this.message = "Operation Success";
         this.total = 1;
         this.data = data;
+
+        return new ResponseEntity<GeneralResponse>(this,HttpStatus.OK);
+
+    }
+
+    public ResponseEntity<GeneralResponse> response(Object data,String token) {
+        this.code = 200;
+        this.message = "Operation Success";
+        this.total = 1;
+        this.data = data;
+        this.token = token;
 
         return new ResponseEntity<GeneralResponse>(this,HttpStatus.OK);
 
@@ -188,4 +200,11 @@ public class GeneralResponse implements Serializable {
         this.data = data;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

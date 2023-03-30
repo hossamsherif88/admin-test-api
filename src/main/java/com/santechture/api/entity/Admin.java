@@ -1,12 +1,16 @@
 package com.santechture.api.entity;
 
+import com.santechture.api.jwt.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.UUID;
+import java.util.Arrays;
+import java.util.Collection;
 
 @Data
 @AllArgsConstructor
@@ -25,8 +29,6 @@ public class Admin {
     private String username;
 
     @Basic
-    @Column(name = "password", nullable = false, length = 70)
+    @Column(name = "password", nullable = false/*, length = 70*/)
     private String password;
-
-
 }
